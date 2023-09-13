@@ -28,6 +28,7 @@ function getActiveTabUrl() {
               hostname: hostname,
               path: path,
               timestamp: Date.now(),
+              checkVisited: true,
             });
             chrome.storage.local.set({ urlList: urlList }, function () {});
           }
@@ -42,5 +43,21 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status === "complete") {
     // Tab has finished loading (including refresh)
     getActiveTabUrl();
+  }
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log("message: " + message.type);
+  if (message.type === "checkVisited") {
+    const urlToCheck = message.url;
+    chrome.storage.local.get(["urlList"], (result) => {
+      const urlList = result.urlList || [];
+      const visited = urlList.some((url) => url.hostname === urlToCheck);
+      sendResponse({ visited });
+
+      console.log("urlList: " + urlList);
+      console.log("visited: " + visited);
+    });
+    return true;
   }
 });

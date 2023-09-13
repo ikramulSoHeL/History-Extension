@@ -25,17 +25,21 @@ document.addEventListener("DOMContentLoaded", function () {
       sortedUrlList.forEach(function (url) {
         var hostname = url.hostname;
         var li = document.createElement("li");
+        var time = document.createElement("time");
         var span = document.createElement("span");
         var btn = document.createElement("button");
-        span.innerHTML =
-          hostname + " -- " + new Date(url.timestamp).toLocaleString();
-        //   hostname;
+
+        time.classList.add("text");
+        time.innerHTML = new Date(url.timestamp).toLocaleString();
+
+        span.innerHTML = "Url: " + hostname;
         span.classList.add("url");
         span.addEventListener("click", function (e) {
           e.preventDefault();
           //   console.log(hostname);
           chrome.tabs.create({ url: hostname });
         });
+
         btn.classList.add("removeBtn");
         btn.appendChild(document.createTextNode("Remove"));
         btn.addEventListener("click", function (e) {
@@ -51,8 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           }
         });
+
         li.classList.add("urlItem");
         li.appendChild(span);
+        li.appendChild(time);
         li.appendChild(btn);
         history.appendChild(li);
       });
