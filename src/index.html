@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .urlItem {
+        display: flex;
+        justify-content: space-between;
+
+        margin-bottom: 5px;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .action {
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        padding: 5px 15px;
+        cursor: pointer;
+      }
+
+      .clear-action {
+        background-color: red;
+        color: white;
+      }
+
+      .export-action {
+        background-color: green;
+        color: white;
+      }
+
+      #status {
+        display: flex;
+        /* justify-content: space-between; */
+        justify-content: space-evenly;
+      }
+
+      .url {
+        cursor: pointer;
+        color: blue;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: underline;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .removeBtn {
+        background-color: red;
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        padding: 5px 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="" style="width: 100%">
+      <h3 class="" style="text-align: center">Browsing History</h3>
+      <div class="actions">
+        <button id="clearBtn" class="action clear-action">Clear</button>
+        <button id="exportTxtBtn" class="action export-action">
+          Export as Text
+        </button>
+        <button id="exportCsvBtn" class="action export-action">
+          Export as CSV
+        </button>
+      </div>
+      <hr />
+      <div id="status"></div>
+      <div id="urlList" style="width: 400px; padding: 10px"></div>
+    </div>
+
+    <script src="action.js"></script>
+  </body>
+</html>
