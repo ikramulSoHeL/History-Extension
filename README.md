@@ -1,11 +1,11 @@
 # History-Extension Saver Extension
 
-Overview
+# Overview
 The Browser History Saver Extension is a powerful tool that allows users to save and manage their browsing history effortlessly. This extension is designed to work with popular web browsers like Chrome, Firefox, and Edge, providing a seamless experience for users who want to maintain a record of their online activities.
 
 The extension is built using web technologies such as HTML, CSS, and JavaScript, making it easy to understand and customize. Feel free to explore the codebase and adapt it to your specific needs.
 
-Features
+# Features
 Save Browsing History: The extension automatically saves your browsing history as you navigate the web, creating a chronological record of your online activities.
 
 Search and Filter: Easily search and filter your saved history to find specific websites or pages, making it simple to revisit important information.
@@ -16,7 +16,7 @@ Privacy and Security: Your saved history is stored securely on your local machin
 
 Customization: As a developer, you can easily customize the extension to add additional features or integrate it with other tools and services.
 
-Installation
+# Installation
 To install the Browser History Saver Extension, follow these steps:
 
 Clone or download this repository to your local machine.
@@ -31,7 +31,7 @@ Click on "Load unpacked" and select the directory where you cloned/downloaded th
 
 The extension should now be installed and ready to use.
 
-Usage
+# Usage
 Once installed, using the Browser History Saver Extension is simple:
 
 Navigate the web as usual, and the extension will automatically save your browsing history.
@@ -42,7 +42,7 @@ Use the search and filter options to find specific websites or pages.
 
 Export and import your history as needed.
 
-Contributing
+# Contributing
 We welcome contributions from the developer community. If you have ideas for improvements or want to contribute code, feel free to fork this repository, make your changes, and create a pull request. We'll be happy to review your contributions.
 
 Support
