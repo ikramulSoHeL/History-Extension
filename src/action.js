@@ -89,15 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
       var blob = new Blob([text], { type: "text/plain" });
       var blobURL = URL.createObjectURL(blob);
 
-      // Create an anchor element to trigger the download
       const anchor = document.createElement("a");
       anchor.href = blobURL;
-      anchor.download = "history.txt"; // Set the desired file name
+      anchor.download = "history.txt";
 
-      // Programmatically click the anchor element to initiate the download
       anchor.click();
 
-      // Clean up by revoking the object URL
       URL.revokeObjectURL(blobURL);
     });
   });
@@ -116,15 +113,12 @@ document.addEventListener("DOMContentLoaded", function () {
       var blob = new Blob([text], { type: "text/csv" });
       var blobURL = URL.createObjectURL(blob);
 
-      // Create an anchor element to trigger the download
       const anchor = document.createElement("a");
       anchor.href = blobURL;
-      anchor.download = "history.csv"; // Set the desired file name
+      anchor.download = "history.csv";
 
-      // Programmatically click the anchor element to initiate the download
       anchor.click();
 
-      // Clean up by revoking the object URL
       URL.revokeObjectURL(blobURL);
     });
   });

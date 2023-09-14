@@ -1,4 +1,3 @@
-// Function to get the URL of the active tab
 function getActiveTabUrl() {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     if (tabs.length > 0) {
@@ -38,7 +37,6 @@ function getActiveTabUrl() {
   });
 }
 
-// Event listener for when a tab is updated (e.g., when it's refreshed)
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status === "complete") {
     // Tab has finished loading (including refresh)
@@ -64,7 +62,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       });
 
       if (index === -1) {
-        // If the hostname is not in the list
         visited = false;
       }
       sendResponse({ visited });
