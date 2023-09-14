@@ -48,14 +48,27 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log("message: " + message.type);
+  console.log("current url" + message.url);
+
   if (message.type === "checkVisited") {
     const urlToCheck = message.url;
+    var visited = true;
     chrome.storage.local.get(["urlList"], (result) => {
-      const urlList = result.urlList || [];
-      const visited = urlList.some((url) => url.hostname === urlToCheck);
+      var urlList = result.urlList;
+      if (urlList === undefined) {
+        urlList = [];
+      }
+
+      var index = urlList.findIndex(function (e) {
+        return e.hostname == urlToCheck;
+      });
+
+      if (index === -1) {
+        // If the hostname is not in the list
+        visited = false;
+      }
       sendResponse({ visited });
 
-      console.log("urlList: " + urlList);
       console.log("visited: " + visited);
     });
     return true;
